@@ -30,16 +30,45 @@ public class ProductRepository : IProductRepository
             .FirstOrDefaultAsync();
         return _mapper.Map<ProductVO>(product);
     }    
-    public Task<ProductVO> Create(ProductVO vo)
+    public async Task<ProductVO> Create(ProductVO vo)
     {
-        throw new NotImplementedException();
+
+        Product product = _mapper.Map<Product>(vo);//mapeia o vo recebido. já pé um produto e precisa persistir
+        _context.Products.Add(product); //adiciona.
+
+        await _context.SaveChangesAsync(); // salva o produto no BD 
+
+        return _mapper.Map<ProductVO>(product); // converto novamente pra View (entra VO e sai VO)
     }
-    public Task<ProductVO> Update(ProductVO vo)
+    public async Task<ProductVO> Update(ProductVO vo)
     {
-        throw new NotImplementedException();
+        Product product = _mapper.Map<Product>(vo);//mapeia o vo recebido. já pé um produto e precisa persistir
+        _context.Products.Add(product); //adiciona.
+
+        await _context.SaveChangesAsync(); // salva o produto no BD 
+
+        return _mapper.Map<ProductVO>(product); // converto novamente pra View (entra VO e sai VO)
     }
-    public Task<bool> Delete(long id)
+    public async Task<bool> Delete(long id)
     {
-        throw new NotImplementedException();
+        try
+        {  ///caminho feliz
+            Product product =
+            await _context.Products.Where(prod => prod.Id == id)
+            .FirstOrDefaultAsync();
+
+            if (product == null) return false;
+
+            _context.Remove(product);
+            await _context.SaveChangesAsync(true);
+            return true;
+
+        }
+        catch (Exception)
+        {
+            return false;
+        }
+
+        
     }
 }
