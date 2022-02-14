@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekShopping.ProductAPI.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20220214000254_AddProductDataTableonDB")]
+    [Migration("20220214030603_AddProductDataTableonDB")]
     partial class AddProductDataTableonDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -31,6 +31,11 @@ namespace GeekShopping.ProductAPI.Migrations
                         .HasColumnName("id");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
+
+                    b.Property<string>("imageurl")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("image_url");
 
                     b.Property<string>("CategoryName")
                         .HasMaxLength(50)
