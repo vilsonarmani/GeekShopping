@@ -18,7 +18,7 @@ namespace GeekShopping.ProductAPI.Migrations
                     price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     description = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: true),
                     category_name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: true),
-                    image_url = table.Column<string>(type: "nvarchar(300)", maxLength: 50, nullable: true)
+                    image_url = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: true)
                 },
                 constraints: table =>
                 {

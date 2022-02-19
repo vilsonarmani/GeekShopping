@@ -12,7 +12,7 @@ builder.Services.AddControllers();
 
 var MSSQLconnection = builder.Configuration["MSSQLconnection:MSSQLconnectionString"];
 
-builder.Services.AddDbContext<Contexto>( options => options.UseSqlServer(MSSQLconnection));
+builder.Services.AddDbContext<ProductContext>( options => options.UseSqlServer(MSSQLconnection));
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);

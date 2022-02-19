@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GeekShopping.ProductAPI.Migrations
 {
-    [DbContext(typeof(Contexto))]
-    [Migration("20220214030603_AddProductDataTableonDB")]
+    [DbContext(typeof(ProductContext))]
+    [Migration("20220219210540_AddProductDataTableonDB")]
     partial class AddProductDataTableonDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,11 +32,6 @@ namespace GeekShopping.ProductAPI.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"), 1L, 1);
 
-                    b.Property<string>("imageurl")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(300)")
-                        .HasColumnName("image_url");
-
                     b.Property<string>("CategoryName")
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)")
@@ -46,6 +41,11 @@ namespace GeekShopping.ProductAPI.Migrations
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)")
                         .HasColumnName("description");
+
+                    b.Property<string>("ImageURL")
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)")
+                        .HasColumnName("image_url");
 
                     b.Property<string>("Name")
                         .IsRequired()

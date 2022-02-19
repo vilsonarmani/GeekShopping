@@ -7,7 +7,7 @@ public class ProductVO
     public decimal Price { get; set; }
     public string? Description { get; set; }
     public string? CategoryName { get; set; }
-    private string? ImageURL;
+    public string? ImageURL { get; set; }
 
 }
 

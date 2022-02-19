@@ -27,7 +27,7 @@ public class Product : BaseEntity
     
     [Column("image_url")]   
     [StringLength(300)]
-    private string? ImageURL;
+    public string? ImageURL { get; set; }
 
 
 }
