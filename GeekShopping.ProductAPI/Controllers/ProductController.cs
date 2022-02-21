@@ -38,7 +38,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ProductVO>> Create(ProductVO vo)
+    public async Task<ActionResult<ProductVO>> Create( [FromBody] ProductVO vo)
     {
         return await OperacaoUnicaProduct(vo, Operacao.Create);
     }
@@ -65,7 +65,7 @@ public class ProductController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<ActionResult<ProductVO>> Update(ProductVO vo)
+    public async Task<ActionResult<ProductVO>> Update([FromBody] ProductVO vo)
     {
         return await OperacaoUnicaProduct(vo,Operacao.Update);
     }

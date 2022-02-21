@@ -18,8 +18,7 @@ public class ProductRepository : IProductRepository
         _mapper = mapper;
     }
     public async Task<IEnumerable<ProductVO>> FindAll()
-    {
-        
+    {        
         List<Product> products = await _context.Products.ToListAsync();
 
         return _mapper.Map<List<ProductVO>>(products);
