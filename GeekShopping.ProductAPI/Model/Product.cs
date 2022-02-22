@@ -14,8 +14,6 @@ public class Product : BaseEntity
     [Column("price")]
     [Required]
     [Range(1,10000)]
-    [DataType(DataType.Currency)]
-    [DisplayFormat(DataFormatString = "{0:C0}", ApplyFormatInEditMode = true)]
     public decimal  Price { get; set; }
 
     [Column("description")]
