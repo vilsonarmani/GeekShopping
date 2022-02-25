@@ -29,7 +29,7 @@ public class ProductController : ControllerBase
         return Ok(products);
     }
 
-    [HttpGet("id")]
+    [HttpGet("{id}")]
     public async Task<ActionResult<ProductVO>> FindById(long id)
     {
         var product = await _repository.FindById(id);
