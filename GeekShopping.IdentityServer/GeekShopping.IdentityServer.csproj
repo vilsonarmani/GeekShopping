@@ -8,14 +8,15 @@
 
   <ItemGroup>
     <Folder Include="MainModule\" />
+    <Folder Include="Configuration\" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="Views\Home\Index.cshtml" />
-    <None Include="Views\Home\Privacy.cshtml" />
-    <None Include="Views\Shared\Error.cshtml" />
-    <None Include="Views\Shared\_Layout.cshtml" />
-    <None Include="Views\Shared\_ValidationScriptsPartial.cshtml" />
+    <PackageReference Include="Duende.IdentityServer.AspNetIdentity" Version="6.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="6.0.3" />
+	  
+	  <!--.3.21201.13-->
   </ItemGroup>
 
 </Project>
